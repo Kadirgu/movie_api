@@ -45,96 +45,16 @@ let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
 
-let users = [
-  {
-    id:1,
-    fullname: 'John Doe',
-    email: 'johndoe@mail.com',
-    favMovies: [{
-      title: 'Inception',
-      director: 'Christopher Nolan',
-      genre: 'Sci-Fi'
-    }]
-  },
-  {
-    id:2,
-    fullname: 'Jane Doe',
-    email: 'janedoe@mail.com',
-    favMovies: [{
-      title: 'The Avengers',
-      director: 'Peter Jackson',
-      genre: 'Super-Heroes'
-    }]
-  },
-  {
-  id:3,
-  fullname: 'Iris Lopez',
-  email: 'irislopez@gmail.com',
-  favMovies: [{
-    title: 'Terminator',
-    director: 'James Cameron',
-    genre: 'Action'
-  }]
-}
-
-];
-
-let movies = [
-  {
-    title: 'Inception',
-    director: 'Christopher Nolan',
-    genre: 'Sci-Fi'
-  },
-  {
-    title: 'Lord of the Rings',
-    director: 'Peter Jackson',
-    genre: 'Super-Heroes'
-  },
-  {
-    title: 'The Matrix',
-    director: 'Lana Wachowski',
-    genre: 'Sci-fi'
-  },
-  {
-      title: 'The Avengers',
-      director: 'Anthony Russo',
-      genre: 'Super-Heroes'
-    },
-    {
-      title: 'The Silence Of The Lambs',
-      director: 'Jonathan Demme',
-      genre: 'Suspense-Thriller'
-    },
-    {
-      title: 'Terminator',
-      director: 'James Cameron',
-      genre: 'Action'
-    },
-    {
-      title: 'The Prestige',
-      director: 'Christopher Nolan',
-      genre: 'Suspense-Thriller'
-    },
-    {
-      title: 'Shutter Island',
-      director: 'Martin Scorsese',
-      genre:'Suspense-Thriller'
-    },
-    {
-      title: 'The Fugitive',
-      director: 'Andrew Davis',
-      genre: 'Suspense-Thriller'
-    },
-    {
-      title: 'The Shack',
-      director: 'Stuart Hazeldine',
-      genre: 'Feel-Good'
-    }
-];
 
 // READ to return all movies to user
-app.get('/movies', (req, res) => {
-  res.status(200).json(movies)
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Movies.find()
+  .then((movies) => {
+    res.status(201).json(movies);
+  })
+  .catch((err)) => {
+    console.error(err); 
+    res.status(500).send('Error:  ' + err);
 });
 
 //For returning data about a single movie
