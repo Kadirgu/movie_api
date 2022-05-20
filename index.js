@@ -3,7 +3,7 @@ const res = require("express/lib/response");
       morgan = require('morgan');
 const path = require("path")
 const app = express();
-const PORT = 8080; 
+const PORT = 5000; 
 const uuid = require('uuid');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -257,7 +257,7 @@ app.use((err, req, res, next) => {
 
 //app.listen(PORT, ()=>console.log("App is running"));
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5000;
 app.listen(port, '0.0.0.0',() => {
  console.log('Listening on Port ' + port);
 });
