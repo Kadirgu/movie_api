@@ -265,3 +265,12 @@ Timestamp: Fri May 20 2022 12:02:39 GMT+0200 (Mitteleuropäische Sommerzeit)
 URL: /movies/director/christopher20%nolan
 Timestamp: Fri May 20 2022 12:02:47 GMT+0200 (Mitteleuropäische Sommerzeit)
 
+URL: /
+Timestamp: Fri May 20 2022 16:13:01 GMT+0200 (Mitteleuropäische Sommerzeit)
+
+URL: /movies
+Timestamp: Fri May 20 2022 16:13:07 GMT+0200 (Mitteleuropäische Sommerzeit)
+
+URL: /users
+Timestamp: Fri May 20 2022 16:13:11 GMT+0200 (Mitteleuropäische Sommerzeit)
+
