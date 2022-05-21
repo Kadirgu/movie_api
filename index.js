@@ -112,29 +112,6 @@ app.get('/movies/directors/:name', passport.authenticate('jwt', { session: false
 });
 
 //CREATE For allowing new users to register
-app.post('/users/register', (req, res) => {
-  users.push(req.body);
-  res.send('Registration Successful!');
-});
-app.get('/users', (req, res) => {
-  res.send(users);
-});
-
-//For allowing users to UPDATE their user info
-app.put('/users/update/:id', (req, res) => {
-  let userId =  users.findIndex((u)=>u.id==req.params.id);
-  users.slice(userId,1, {...req.body});
-  res.send('Changes saved successfully!');
-  res.send(users);
-});
-
-//For allowing users to add a movie to their list of favorite movies
-app.post('/favourite/add/:id', (req, res) => {
-  const user = users.find((u) => u.id ==req.params.id);
-  user.favMovies.push(req.body);
-  res.send('Request was successful')
-});
-
 app.post('/users', (req, res) => {
   let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
@@ -163,6 +140,23 @@ app.post('/users', (req, res) => {
       res.status(500).send('Error: ' + error);
     });
 });
+
+
+//For allowing users to UPDATE their user info
+app.put('/users/update/:id', (req, res) => {
+  let userId =  users.findIndex((u)=>u.id==req.params.id);
+  users.slice(userId,1, {...req.body});
+  res.send('Changes saved successfully!');
+  res.send(users);
+});
+
+//For allowing users to add a movie to their list of favorite movies
+app.post('/favourite/add/:id', (req, res) => {
+  const user = users.find((u) => u.id ==req.params.id);
+  user.favMovies.push(req.body);
+  res.send('Request was successful')
+});
+
 
 //For allowing users to remove a movie from their list of favorites movies-text
 app.delete('/users/:username/:movietitle', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -222,6 +216,16 @@ app.get("/", (req, res)=>{
 app.get("/documentation", (req, res)=>{
     res.sendFile(path.join(__dirname,'/public/documentation.html'));
 })
+
+//GET request for returning the JSON movie data
+app.get('/movies', (req, res) => {
+    res.json(movies);
+});
+
+//GET request for returning default response
+app.get('/', (req, res) => {
+    res.send('Welcome to the Top 10 Movies List!');
+  });
 
   //Using the Morgan middleware library to log all requests
 app.use(morgan('common'));
