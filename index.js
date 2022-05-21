@@ -223,16 +223,6 @@ app.get("/documentation", (req, res)=>{
     res.sendFile(path.join(__dirname,'/public/documentation.html'));
 })
 
-//GET request for returning the JSON movie data
-app.get('/movies', (req, res) => {
-    res.json(movies);
-});
-
-//GET request for returning default response
-app.get('/', (req, res) => {
-    res.send('Welcome to the Top 10 Movies List!');
-  });
-
   //Using the Morgan middleware library to log all requests
 app.use(morgan('common'));
 app.use(express.json()); 
