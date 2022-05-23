@@ -16,7 +16,7 @@ const Movies = Models.Movie;
 const Users = Models.User;
 const bcrypt = require('bcrypt');
 
-mongoose.connect('mongodb://localhost:8080/myFlixDB', {userNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/myFlixDB', {useUnifiedTopology: true });
 // Note: was localhost:27017 and I changed it to 8080. Is this a problem)
 
 app.use(bodyParser.json());
@@ -113,7 +113,7 @@ app.get('/movies/directors/:name', passport.authenticate('jwt', { session: false
 
 //CREATE For allowing new users to register
 app.post('/users', (req, res) => {
-  let hashedPassword = Users.hashPassword(req.body.Password);
+  let userPassword = req.body.Password;
   Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
     .then((user) => {
       if (user) {
@@ -124,7 +124,7 @@ app.post('/users', (req, res) => {
         Users
           .create({
             Username: req.body.Username,
-            Password: hashedPassword,
+            Password: userPassword,
             Email: req.body.Email,
             Birthday: req.body.Birthday
           })
@@ -244,7 +244,7 @@ app.use((err, req, res, next) => {
 
 //app.listen(PORT, ()=>console.log("App is running"));
 
-const port = process.env.PORT || 5000;
+const port = 3000;
 app.listen(port, '0.0.0.0',() => {
  console.log('Listening on Port ' + port);
 });
