@@ -17,10 +17,14 @@ const Users = Models.User;
 const bcrypt = require('bcrypt');
 
 mongoose.connect('mongodb://localhost:27017/myFlixDB', {useUnifiedTopology: true });
-// Note: was localhost:27017 and I changed it to 8080. Is this a problem)
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+let auth = require('./auth')(app);
+const passport = require('passport');
+require('./passport');
 
 const cors = require('cors');
 app.use(cors());
@@ -42,11 +46,6 @@ userSchema.statics.hashPassword = (password) => {
 userSchema.methods.validatePassword = function(password) {
   return bcrypt.compareSync(password, this.Password);
 };
-
-let auth = require('./auth')(app);
-const passport = require('passport');
-require('./passport');
-
 
 // READ to return all movies to user
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
