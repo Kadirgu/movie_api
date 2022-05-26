@@ -3,7 +3,7 @@ const jwtSecret = 'abcd123'; // This has to be the same key used in the JWTStrat
 const jwt = require('jsonwebtoken'),
     passport = require('passport');
 
-    require('./passport'); //Your local passport file
+require('./passport'); //Your local passport file
 
 
 let generateJWTToken = (user) => {
@@ -20,6 +20,7 @@ module.exports = (router) => {
     router.post('/login', (req, res) => {
         passport.authenticate('local', { session: false }, (error, user, info) => {
             if (error || !user) {
+                console.error(error + "error from the passport");
                 return res.status(400).json({
                     message: 'Something is not right',
                     user: user
