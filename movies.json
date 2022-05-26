@@ -1,0 +1,181 @@
+[{
+  "_id": {
+    "$oid": "627e52a65a058b8a803caf64"
+  },
+  "Title": "Silence of the Lambs",
+  "Description": "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.",
+  "Genre": {
+    "Name": "Thriller",
+    "Description": "Thriller film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
+  },
+  "Director": {
+    "Name": "Jonathan Demme",
+    "Bio": "Robert Jonathan Demme was an American director, producer, and screenwriter.",
+    "Birth": "1944",
+    "Death": "2017"
+  },
+  "ImagePath": "silenceofthelambs.png",
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "627e55355a058b8a803caf65"
+  },
+  "Title": "Inception",
+  "Description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+  "Genre": {
+    "Name": "science fiction",
+    "Description": "Science fiction film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
+  },
+  "Director": {
+    "Name": "Christopher Nolan",
+    "Bio": "Information about Christopher Nolan.",
+    "Birth": "date",
+    "Death": "date"
+  },
+  "ImagePath": "inception.png",
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "627e55d35a058b8a803caf66"
+  },
+  "Title": "The Avengers",
+  "Description": "Earth's Mightiest Heroes stand as the planet's first line of defense against the most powerful threats in the universe. The Avengers began as a group of extraordinary individuals who were assembled to defeat Loki and his Chitauri army in New York City.",
+  "Genre": {
+    "Name": "science fiction",
+    "Description": "Science fiction film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
+  },
+  "Director": {
+    "Name": "Joss Whedon",
+    "Bio": "Information about Christopher Nolan.",
+    "Birth": "1964",
+    "Death": "date"
+  },
+  "ImagePath": "theavengers.png",
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "627e56295a058b8a803caf67"
+  },
+  "Title": "The Terminator",
+  "Description": "Killermachine from the future.",
+  "Genre": {
+    "Name": "science fiction",
+    "Description": "Science fiction film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
+  },
+  "Director": {
+    "Name": "James Cameron",
+    "Bio": "Information about James Cameron.",
+    "Birth": "1954",
+    "Death": "date"
+  },
+  "ImagePath": "theterminator.png",
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "627e56a85a058b8a803caf68"
+  },
+  "Title": "Lord of the Rings",
+  "Description": "A fantasy film in middle earth, with Gandalf the Mage and the Hobbits.",
+  "Genre": {
+    "Name": "science fiction",
+    "Description": "Science fiction film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
+  },
+  "Director": {
+    "Name": "Peter Jackson",
+    "Bio": "Information about James Cameron.",
+    "Birth": "date",
+    "Death": "date"
+  },
+  "ImagePath": "theterminator.png",
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "627e57035a058b8a803caf69"
+  },
+  "Title": "Matrix",
+  "Description": "Neo fulfills his destiny as the chosen one and rescues Zyon from the robots.",
+  "Genre": {
+    "Name": "science fiction",
+    "Description": "Science fiction film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
+  },
+  "Director": {
+    "Name": "Lana Wachowski",
+    "Bio": "Information about Lana Wachowski.",
+    "Birth": "date",
+    "Death": "date"
+  },
+  "ImagePath": "Matrix.png",
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "627e576e5a058b8a803caf6a"
+  },
+  "Title": "The Prestige",
+  "Description": "Film with the title the Prestige.",
+  "Genre": {
+    "Name": "science fiction",
+    "Description": "Science fiction film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
+  },
+  "Director": {
+    "Name": "Christopher Nolan",
+    "Bio": "Information about Christopher Nolan.",
+    "Birth": "date",
+    "Death": "date"
+  },
+  "ImagePath": "theprestige.png",
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "627e57da5a058b8a803caf6b"
+  },
+  "Title": "Shutter Island",
+  "Description": "Film with the title Shutter Island.",
+  "Genre": {
+    "Name": "science fiction",
+    "Description": "Science fiction film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
+  },
+  "Director": {
+    "Name": "Martin Scorsese",
+    "Bio": "Information about Martin Scorsese.",
+    "Birth": "date",
+    "Death": "date"
+  },
+  "ImagePath": "shutterisland.png",
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "627e582b5a058b8a803caf6c"
+  },
+  "Title": "The Fugitive",
+  "Description": "Film with the title The Fugitive.",
+  "Genre": {
+    "Name": "science fiction",
+    "Description": "Science fiction film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience."
+  },
+  "Director": {
+    "Name": "Andrew Davis",
+    "Bio": "Information about Andrew Davis.",
+    "Birth": "date",
+    "Death": "date"
+  },
+  "ImagePath": "thefugitive.png",
+  "Featured": true
+},{
+  "_id": {
+    "$oid": "627e58b55a058b8a803caf6d"
+  },
+  "Title": "The Shack",
+  "Description": "Film with the title The Shack.",
+  "Genre": {
+    "Name": "Feel-good",
+    "Description": "Feel-good effect in the audience."
+  },
+  "Director": {
+    "Name": "Stuart Hazeldine",
+    "Bio": "Information about Stuart Hazeldine.",
+    "Birth": "date",
+    "Death": "date"
+  },
+  "ImagePath": "theshack.png",
+  "Featured": true
+}]

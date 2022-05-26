@@ -1,0 +1,62 @@
+[{
+  "_id": {
+    "$oid": "627e5e715a058b8a803caf6e"
+  },
+  "Username": "John Doe",
+  "Password": "test123",
+  "Email": " jd@gmail.com",
+  "Birthday": "09/10/1988",
+  "FavoriteMovies": [
+    "science fiction"
+  ]
+},{
+  "_id": {
+    "$oid": "627e5ea25a058b8a803caf6f"
+  },
+  "Username": "Fatma Gül",
+  "Password": "test123",
+  "Email": " fg@gmail.com",
+  "Birthday": "19/12/1970",
+  "FavoriteMovies": [
+    "science fiction"
+  ]
+},{
+  "_id": {
+    "$oid": "627e5ecc5a058b8a803caf70"
+  },
+  "Username": "Maria Müller",
+  "Password": "test123",
+  "Email": " mm@gmail.com",
+  "Birthday": "22/06/1989",
+  "FavoriteMovies": [
+    "science fiction"
+  ]
+},{
+  "_id": {
+    "$oid": "627e5f0b5a058b8a803caf71"
+  },
+  "Username": "Hassan Abubakr",
+  "Password": "test123",
+  "Email": " Ha@gmail.com",
+  "Birthday": "24/04/1998",
+  "FavoriteMovies": [
+    "science fiction",
+    {
+      "$oid": "627e582b5a058b8a803caf6c"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "627e5f2c5a058b8a803caf72"
+  },
+  "Username": "Judy Smith",
+  "Password": "test123",
+  "Email": " js@gmail.com",
+  "Birthday": "12/03/1990",
+  "FavoriteMovies": [
+    "science fiction",
+    {
+      "$oid": "627e582b5a058b8a803caf6c"
+    }
+  ]
+}]
