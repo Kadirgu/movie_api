@@ -39,14 +39,6 @@ let userSchema = mongoose.Schema({
   FavoriteMovies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }]
 });
 
-userSchema.statics.hashPassword = (password) => {
-  return bcrypt.hashSync(password, 10);
-};
-
-userSchema.methods.validatePassword = function (password) {
-  return bcrypt.compareSync(password, this.Password);
-};
-
 // READ to return all movies to user
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
@@ -112,34 +104,33 @@ app.get('/movies/directors/:name', passport.authenticate('jwt', { session: false
 
 //CREATE For allowing new users to register
 app.post('/users', (req, res) => {
-  let userPassword = req.body.Password;
-  Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
-    .then((user) => {
+  let hashedPassword = Users.hashPassword(req.body.Password);
+  Users.findOne({ Name: req.body.Name })
+    .then(user => {
       if (user) {
-        //If the user is found, send a response that it already exists
-        return res.status(400).send(req.body.Username + ' already exists');
-      }
-      else {
-        Users
-          .create({
-            Username: req.body.Username,
-            Password: userPassword,
-            Email: req.body.Email,
-            Birthday: req.body.Birthday
+        return res.status(400).send(req.body.Name + 'already exists');
+      } else {
+        Users.create({
+          Name: req.body.Name,
+          Password: hashedPassword,
+          Email: req.body.Email,
+          Birthday: req.body.Birthday
+        })
+          .then(user => {
+            res.status(201).json(user);
           })
-          .then((user) => { res.status(201).json(user) })
-          .catch((error) => {
+          .catch(error => {
             console.error(error);
             res.status(500).send('Error: ' + error);
           });
       }
     })
-    .catch((error) => {
+    .catch(error => {
       console.error(error);
       res.status(500).send('Error: ' + error);
     });
-});
-
+}
+);
 
 //For allowing users to UPDATE their user info
 app.put('/users/update/:id', (req, res) => {
