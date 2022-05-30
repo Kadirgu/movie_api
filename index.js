@@ -31,14 +31,6 @@ app.use(cors());
 
 /* rest of code goes here*/
 
-let userSchema = mongoose.Schema({
-  Username: { type: String, required: true },
-  Password: { type: String, required: true },
-  Email: { type: String, required: true },
-  Birthday: Date,
-  FavoriteMovies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }]
-});
-
 // READ to return all movies to user
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
@@ -193,10 +185,6 @@ app.delete('/users/:username', passport.authenticate('jwt', { session: false }),
       res.status(500).send('Error: ' + err);
     });
 });
-
-app.get('/', (req, res) => {
-  res.sendFile('public/documentation.html', { root: __dirname });
-})
 
 //GET request for returning the personal message
 app.get("/", (req, res) => {
