@@ -95,34 +95,34 @@ app.get('/movies/directors/:name', passport.authenticate('jwt', { session: false
 });
 
 //CREATE For allowing new users to register
-app.post('/users', (req, res) => {
+app.post("/users", (req, res) => {
   let hashedPassword = Users.hashPassword(req.body.Password);
-  Users.findOne({ Name: req.body.Name })
-    .then(user => {
+  Users.findOne({ Username: req.body.Username })
+    .then((user) => {
+      console.log(user);
       if (user) {
-        return res.status(400).send(req.body.Name + 'already exists');
+        return res.status(400).send(req.body.Username + "already exists");
       } else {
         Users.create({
-          Name: req.body.Name,
+          Username: req.body.Username,
           Password: hashedPassword,
           Email: req.body.Email,
-          Birthday: req.body.Birthday
+          Birthday: req.body.Birthday,
         })
-          .then(user => {
+          .then((user) => {
             res.status(201).json(user);
           })
-          .catch(error => {
+          .catch((error) => {
             console.error(error);
-            res.status(500).send('Error: ' + error);
+            res.status(500).send("Error: " + error);
           });
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
-      res.status(500).send('Error: ' + error);
+      res.status(500).send("Error: " + error);
     });
-}
-);
+});
 
 //For allowing users to UPDATE their user info
 app.put('/users/update/:id', (req, res) => {
