@@ -29,19 +29,35 @@ require('./passport');
 const cors = require('cors');
 app.use(cors());
 
+const allowedOrigins = process.env.ALLOWED_ORIGIN.split(',');
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        let message = `No access from this origin ${origin}`;
+        return callback(new Error(message), false);
+      }
+      console.log(`allowed ${(allowedOrigins, origin)}`);
+      return callback(null, true);
+    },
+  })
+);
+
 /* rest of code goes here*/
 
 // READ to return all movies to user
-app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Movies.find()
-    .then((movies) => {
-      res.status(200).json(movies);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    });
-});
+//app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+Movies.find()
+  .then((movies) => {
+    res.status(200).json(movies);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.status(500).send('Error: ' + err);
+  });
+//});
 
 //For returning data about a single movie
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
