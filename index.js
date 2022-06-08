@@ -137,51 +137,119 @@ app.post("/users", (req, res) => {
     });
 });
 
-//For allowing users to UPDATE their user info
-app.put('/users/update/:id', (req, res) => {
-  let userId = users.findIndex((u) => u.id == req.params.id);
-  users.slice(userId, 1, { ...req.body });
-  res.send('Changes saved successfully!');
-  res.send(users);
-});
-
-//For allowing users to add a movie to their list of favorite movies
-app.post('/favourite/add/:id', (req, res) => {
-  const user = users.find((u) => u.id == req.params.id);
-  user.favMovies.push(req.body);
-  res.send('Request was successful')
-});
-
-
-//For allowing users to remove a movie from their list of favorites movies-text
-app.delete('/users/:username/:movietitle', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Movies.findOne({ Title: req.params.movietitle })
-    .then((movie) => {
-      if (movie) {
-        Users.findOneAndUpdate({ Username: req.params.username }, {
-          $pull: { FavoriteMovies: movie.id }
-        },
-          { new: true })
-          .then((updatedUser) => {
-            if (updatedUser) {
-              res.status(200).json(updatedUser);
-            }
-            else {
-              res.status(404).send('User is not in the database!');
-            }
-          })
-          .catch((err) => {
-            res.status(500).send('Error: ' + err);
-          });
-      }
-      else {
-        return res.status(400).send(req.params.movietitle + ' does not exist in the database!');
-      }
+// Get all users
+app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Users.find()
+    .then((users) => {
+      res.status(201).json(users);
     })
     .catch((err) => {
+      console.error(err);
       res.status(500).send('Error: ' + err);
     });
 });
+
+// Get a user by username
+app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Users.findOne({ Username: req.params.Username })
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+});
+
+// Update a user's info, by username
+
+app.put('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Users.findOneAndUpdate({ Username: req.params.Username }, {
+    $set:
+    {
+      Username: req.body.Username,
+      Password: req.body.Password,
+      Email: req.body.Email,
+      Birthday: req.body.Birthday
+    }
+  },
+    { new: true }, // This line makes sure that the updated document is returned
+    (err, updatedUser) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+      } else {
+        res.json(updatedUser);
+      }
+    });
+});
+
+// Add a movie to a user's list of favorites
+app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Users.findOneAndUpdate({ Username: req.params.Username }, {
+    $push: { FavoriteMovies: req.params.MovieID }
+  },
+    { new: true }, // This line makes sure that the updated document is returned
+    (err, updatedUser) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+      } else {
+        res.json(updatedUser);
+      }
+    });
+});
+
+// Allows user to delete movie from favorites
+app.delete(
+  "/users/:Username/movies/:MovieID", passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Movies.findOne({ _id: req.params.MovieID })
+      .then((movie) => {
+        if (movie) {
+          Users.findOneAndUpdate(
+            { Username: req.params.Username },
+            {
+              $pull: { FavoriteMovies: movie._id },
+            },
+            { new: true }
+          )
+            .then((updatedUser) => {
+              if (updatedUser) {
+                res.status(200).json(updatedUser);
+              } else {
+                res.status(404).send("User is not in the database!");
+              }
+            })
+            .catch((err) => {
+              res.status(500).send("Error: " + err);
+            });
+        } else {
+          return res.status(400).send("Movie does not exist in the database!");
+        }
+      })
+      .catch((err) => {
+        res.status(500).send("Error: " + err);
+      });
+  }
+);
+
+// Delete a user by username
+app.delete('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Users.findOneAndRemove({ Username: req.params.Username })
+    .then((user) => {
+      if (!user) {
+        res.status(400).send(req.params.Username + ' was not found');
+      } else {
+        res.status(200).send(req.params.Username + ' was deleted.');
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+});
+
 
 //For allowing existing users to deregister-text
 app.delete('/users/:username', passport.authenticate('jwt', { session: false }), (req, res) => {
