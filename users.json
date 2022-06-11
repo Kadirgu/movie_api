@@ -1,19 +1,22 @@
 [{
   "_id": {
-    "$oid": "627e5e715a058b8a803caf6e"
+    "$oid": "628b5997310527a225143ab1"
   },
-  "Username": "John Doe",
+  "Username": "Kadirgu",
   "Password": "test123",
-  "Email": " jd@gmail.com",
-  "Birthday": "09/10/1988",
-  "FavoriteMovies": [
-    "science fiction"
-  ]
+  "Email": "kadir.guercan@gmail.com",
+  "Birthday": {
+    "$date": {
+      "$numberLong": "580694400000"
+    }
+  },
+  "FavoriteMovies": [],
+  "__v": 0
 },{
   "_id": {
     "$oid": "627e5ea25a058b8a803caf6f"
   },
-  "Username": "Fatma Gül",
+  "Username": "FatmaGül",
   "Password": "test123",
   "Email": " fg@gmail.com",
   "Birthday": "19/12/1970",
@@ -59,4 +62,88 @@
       "$oid": "627e582b5a058b8a803caf6c"
     }
   ]
+},{
+  "_id": {
+    "$oid": "628fe0fd0f10a424888d699c"
+  },
+  "Username": "Kadir",
+  "Password": "test123",
+  "Email": "kadir.guercan@gmail.com",
+  "Birthday": {
+    "$date": {
+      "$numberLong": "580694400000"
+    }
+  },
+  "FavoriteMovies": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6291fa970945ab960a3670f0"
+  },
+  "Username": "John",
+  "Password": "test123",
+  "Email": "john@gmail.com",
+  "Birthday": {
+    "$date": {
+      "$numberLong": "580694400000"
+    }
+  },
+  "FavoriteMovies": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62987090da469a98326d74c7"
+  },
+  "Username": "Bob",
+  "Password": "bob123",
+  "Email": "bob@gmail.com",
+  "Birthday": {
+    "$date": {
+      "$numberLong": "1251936000000"
+    }
+  },
+  "FavoriteMovies": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a06c345795462141465104"
+  },
+  "Username": "Marry",
+  "Password": "marry123",
+  "Email": "m@gmail.com",
+  "Birthday": {
+    "$date": {
+      "$numberLong": "1252195200000"
+    }
+  },
+  "FavoriteMovies": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a09043ac3b5c803c7502f5"
+  },
+  "Username": "Nazan",
+  "Password": "nazan123",
+  "Email": "n@gmail.com",
+  "Birthday": {
+    "$date": {
+      "$numberLong": "978307200000"
+    }
+  },
+  "FavoriteMovies": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a46008e04f23d3d7440321"
+  },
+  "Username": "Sefa",
+  "Password": "$2b$10$Py7DKxY8Pz5Q4bKiB2S7xuYt266uhIMAki4AIx9BhDdAFHSo0mZ/K",
+  "Email": "s@gmail.com",
+  "Birthday": {
+    "$date": {
+      "$numberLong": "978307200000"
+    }
+  },
+  "FavoriteMovies": [],
+  "__v": 0
 }]

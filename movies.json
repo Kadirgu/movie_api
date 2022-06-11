@@ -1,5 +1,47 @@
 [{
   "_id": {
+    "$oid": "627e3f41d111a88bf37568df"
+  },
+  "Title": "Silence of the Lambs",
+  "Description": "A young FBT cadet must receive the help of an incarcerated and manipulativecannibal killer.",
+  "Genre": {
+    "Name": "Thriller",
+    "Description": "Trhiller film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspence in the audience."
+  },
+  "Director": {
+    "Name": "Johnathan Demme",
+    "Bio": "Robert Jonathan Demme was an American director, producer, and screenwriter.",
+    "Bitrh": "1944",
+    "Deatch": "2017"
+  },
+  "ImagePath": "silenceofthelambs.png",
+  "Featured": true,
+  "Actors": [
+    "Kasi Lemmings"
+  ]
+},{
+  "_id": {
+    "$oid": "628f38380945ab960a3670b5"
+  },
+  "Title": "The fifth Element",
+  "Description": "Lilo and Korben are trying to safe all life in the univers against the ultimate evil.",
+  "Genre": {
+    "Name": "Science-Fiction, Action",
+    "Description": "A Science-Fiction film, also known as a fantastic film or made-up story, is a broad film genre that involves excitement and suspence in the audience."
+  },
+  "Director": {
+    "Name": "Luc Besson",
+    "Bio": "Luc Besson is an American director, producer, and screenwriter.",
+    "Bitrh": "18. März 1959",
+    "Deatch": "-"
+  },
+  "ImagePath": "fifthelement.png",
+  "Featured": true,
+  "Actors": [
+    "Kasi Lemmings"
+  ]
+},{
+  "_id": {
     "$oid": "627e52a65a058b8a803caf64"
   },
   "Title": "Silence of the Lambs",
