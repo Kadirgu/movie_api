@@ -16,7 +16,7 @@ const Movies = Models.Movie;
 const Users = Models.User;
 const bcrypt = require('bcrypt');
 
-mongoose.connect('mongodb://localhost:27017/myFlixDB', { useUnifiedTopology: true });
+mongoose.connect('process.env.CONNECTION_URI', { useUnifiedTopology: true });
 
 
 app.use(bodyParser.json());
