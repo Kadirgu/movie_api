@@ -303,7 +303,7 @@ app.use((err, req, res, next) => {
 
 //app.listen(PORT, ()=>console.log("App is running"));
 
-const port = 3000;
+const port = 8080;
 app.listen(port, '0.0.0.0', () => {
   console.log('Listening on Port ' + port);
 });
