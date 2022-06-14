@@ -44,7 +44,7 @@ app.use(cors({
 /* rest of code goes here*/
 
 // READ to return all movies to user
-app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+/* app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(200).json(movies);
@@ -53,7 +53,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
       console.error(err);
       res.status(500).send('Error: ' + err);
     });
-});
+}); */
 
 //For returning data about a single movie
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
