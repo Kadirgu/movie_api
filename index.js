@@ -114,7 +114,7 @@ app.post("/users", (req, res) => {
   let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
-      console.log(user);
+      console.info(user);
       if (user) {
         return res.status(400).send(req.body.Username + "already exists");
       } else {
@@ -306,5 +306,5 @@ app.use((err, req, res, next) => {
 //app.listen(PORT, ()=>console.log("App is running"));
 
 app.listen(process.env.PORT, '0.0.0.0', () => {
-  console.log('Listening on Port ' + process.env.PORT);
+  console.info('Listening on Port ' + process.env.PORT);
 });
