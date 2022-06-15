@@ -1,24 +1,22 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const res = require("express/lib/response");
 morgan = require('morgan');
 
 const path = require("path")
 const app = express();
-const uuid = require('uuid');
+
 const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
 require('dotenv').config()
 const Models = require('./models.js');
-const { check, validationResult } = require('express-validator');
+
 
 const Movies = Models.Movie;
 const Users = Models.User;
-const bcrypt = require('bcrypt');
 
 dotenv.config();
-const PORT = process.env.PORT || 8080
+
 
 mongoose.connect(process.env.CONNECTION_URI, { useUnifiedTopology: true });
 
