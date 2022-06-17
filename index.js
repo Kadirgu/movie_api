@@ -31,8 +31,6 @@ require('./passport');
 const cors = require('cors');
 app.use(cors());
 
-let allowedOrigins = ['http://localhost:1234', 'http://testsite.com'];
-
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
