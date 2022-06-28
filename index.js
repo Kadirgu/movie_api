@@ -18,7 +18,7 @@ const Users = Models.User;
 dotenv.config();
 
 
-mongoose.connect("mongodb+srv://Kadirgu:Kadirgu123@myflixdb.kw91e.mongodb.net/?retryWrites=true&w=majority", { useUnifiedTopology: true });
+mongoose.connect(process.env.CONNECTION_URI, { useUnifiedTopology: true });
 
 
 app.use(bodyParser.json());
