@@ -1,39 +1,33 @@
 const express = require("express");
 const dotenv = require("dotenv");
-morgan = require('morgan');
+morgan = require("morgan");
+const bodyParser = require("body-parser");
 
-const path = require("path")
+const path = require("path");
 const app = express();
 
-const bodyParser = require('body-parser');
+const mongoose = require("mongoose");
+require("dotenv").config();
+const Models = require("./models.js");
 
-const mongoose = require('mongoose');
-require('dotenv').config()
-const Models = require('./models.js');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
+//importing CORS
+const cors = require("cors");
+app.use(cors());
 
 const Movies = Models.Movie;
 const Users = Models.User;
 
 dotenv.config();
 
-
 mongoose.connect(process.env.CONNECTION_URI, { useUnifiedTopology: true });
 
+let auth = require("./auth")(app);
+const passport = require("passport");
+require("./passport");
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-let auth = require('./auth')(app);
-const passport = require('passport');
-require('./passport');
-
-const cors = require('cors');
-app.use(cors());
-
-app.use(cors(
-
-));
 
 /* rest of code goes here*/
 
