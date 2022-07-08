@@ -297,6 +297,7 @@ app.use((err, req, res, next) => {
 
 //app.listen(PORT, ()=>console.log("App is running"));
 
-app.listen(2222, '0.0.0.0', () => {
-  console.info('Listening on Port ' + "2222");
+const port = process.env.PORT || 2222;
+app.listen(port, '0.0.0.0', () => {
+  console.info('Listening on Port ' + port);
 });
