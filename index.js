@@ -198,8 +198,10 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { sess
 app.delete(
   "/users/:Username/movies/:MovieID", passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    console.log(req.params.MoviesID)
     Movies.findOne({ _id: req.params.MovieID })
       .then((movie) => {
+        console.log(movie)
         if (movie) {
           Users.findOneAndUpdate(
             { Username: req.params.Username },
