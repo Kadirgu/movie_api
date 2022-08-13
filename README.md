@@ -34,19 +34,19 @@ A myFlix Application is the server-side component of a full-stack Project and ai
 - The API source code must be deployed to a publicly accessible platform like GitHub.
 - The API must be deployed to Heroku.
 # Dependencies
-node.js
-bcryptjs
-body-parser
-cors
-dotenv
-express
-express-validator
-jsonwebtoken
-mongoose
-morgan
-passport
-passport-jwt
-passport-local
-swagger-ui-express
-uuid
-nodemon
+- node.js
+- bcryptjs
+- body-parser
+- cors
+- dotenv
+- express
+- express-validator
+- jsonwebtoken
+- mongoose
+- morgan
+- passport
+- passport-jwt
+- passport-local
+- swagger-ui-express
+- uuid
+- nodemon
