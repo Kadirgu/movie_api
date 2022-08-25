@@ -38,6 +38,7 @@
   },
   "homepage": "https://github.com/Kadirgu/movie_api_2#readme",
   "devDependencies": {
-    "eslint": "^8.15.0"
+    "eslint": "^8.15.0",
+    "typedoc": "^0.23.10"
   }
 }
